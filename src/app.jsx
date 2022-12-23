@@ -12,7 +12,7 @@ export function App() {
     <SWRConfig
       value={{ fetcher: (resource, init) => fetch(resource, init).then(res => res.json()) }}
     >
-      <header className="max-w-2xl mx-auto">
+      <header className="max-w-2xl mx-auto px-2">
         <h1 className="text-2xl mt-2">rumo</h1>
         <small className="text-gray-500">——测试站点</small>
         <nav className="flex mt-2">
@@ -21,7 +21,7 @@ export function App() {
         </nav>
       </header>
 
-      <main className="max-w-2xl mx-auto mt-4">
+      <main className="max-w-2xl mx-auto mt-4 px-2">
         <Router>
           <Index path="/" meta="" />
           <Index path="/tag/:slug" meta="tags" />
