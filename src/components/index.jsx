@@ -8,7 +8,7 @@ export default function Index({ meta, slug, ...props }) {
   const { data, error, isLoading } = useSWR(`/api/${target}/?page=${page}&page_size=4&order_by=-cid&with_meta=true`);
 
   useEffect(() => {
-    document.title = data ? `第 ${page} 页 - rumo` : "rumo";
+    document.title = data && page != 1 ? `第 ${page} 页 - rumo` : "rumo";
   }, [data]);
 
   if (error) return <div>服务器错误</div>
