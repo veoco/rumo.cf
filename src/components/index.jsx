@@ -5,7 +5,7 @@ import useSWR from "swr";
 export default function Index({ meta, slug, ...props }) {
   const target = meta ? (meta == "tags" ? `tags/${slug}/posts` : `categories/${slug}/posts`) : "posts";
   const page = props.page ? parseInt(props.page) : 1;
-  const { data, error, isLoading } = useSWR(`/api/${target}/?page=${page}&page_size=4&order_by=-cid&with_meta=true`);
+  const { data, error, isLoading } = useSWR(`/api/${target}/?page=${page}`);
 
   useEffect(() => {
     document.title = data && page != 1 ? `第 ${page} 页 - rumo` : "rumo";
