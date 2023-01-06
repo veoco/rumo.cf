@@ -2,7 +2,7 @@ import { useEffect } from "preact/hooks"
 
 export default function ErrorPage({ ...props }) {
   useEffect(() => {
-    document.title = `未找到 - rumo`;
+    document.title = `未找到 - 如墨`;
   }, []);
 
   return (

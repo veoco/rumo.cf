@@ -1,20 +1,26 @@
 import { useEffect } from "preact/hooks"
 import useSWR from "swr";
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import behead from 'remark-behead';
 
 export default function SinglePage({ slug }) {
   const { data, error, isLoading } = useSWR(`/api/pages/${slug}`);
 
   useEffect(() => {
-    document.title = data?`${data.title} - rumo`:"rumo";
+    document.title = data ? `${data.title} - 如墨` : "如墨";
   }, [data]);
 
   if (error) return <div>服务器错误</div>
   if (isLoading) return <div>正在加载...</div>
 
+  const markdown = data.text.slice(15).replace("<!--more-->", "");
   return (
     <>
       <h2 className="text-lg font-bold mb-2 underline">{data.title}</h2>
-      <p>{data.text.slice(15)}</p>
+      <div className="mt-1 prose prose-pre:bg-gray-600">
+        <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm, [behead, { minDepth: 3 }]]} />
+      </div>
     </>
   )
 }

@@ -13,7 +13,7 @@ export function App() {
       value={{ fetcher: (resource, init) => fetch(resource, init).then(res => res.json()) }}
     >
       <header className="max-w-2xl mx-auto px-2">
-        <h1 className="text-2xl mt-2">rumo</h1>
+        <h1 className="text-2xl mt-2">如墨</h1>
         <small className="text-gray-500">——测试站点</small>
         <nav className="flex mt-2">
           <Link className="mr-4" activeClassName="font-bold" href="/">首页</Link>
@@ -32,6 +32,11 @@ export function App() {
         </Router>
       </main>
 
+      <footer className="flex justify-center items-center mt-16 text-sm py-1 text-gray-400">
+        <Link href="https://github.com/veoco/rumo" data-native>rumo</Link>
+        <span className='mx-2'>|</span>
+        <Link target="_blank" href="https://github.com/veoco/rumo.cf" data-native>rumo.cf</Link>
+      </footer>
     </SWRConfig>
   )
 }
