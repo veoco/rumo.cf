@@ -13,7 +13,7 @@ export function App() {
       value={{ fetcher: (resource, init) => fetch(resource, init).then(res => res.json()) }}
     >
       <header className="max-w-2xl mx-auto px-2">
-        <h1 className="text-2xl mt-2">如墨</h1>
+        <h1 className="text-2xl mt-6">如墨</h1>
         <small className="text-gray-500">——测试站点</small>
         <nav className="flex mt-2">
           <Link className="mr-4" activeClassName="font-bold" href="/">首页</Link>
