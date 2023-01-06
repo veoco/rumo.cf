@@ -4,5 +4,8 @@ module.exports = {
       "./index.html",
       "./src/**/*.{js,jsx}",
     ],
-    plugins: [],
+    plugins: [
+      require('@tailwindcss/forms'),
+      require('@tailwindcss/typography')
+    ],
   }
