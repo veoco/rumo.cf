@@ -1,8 +1,12 @@
-import { useEffect } from "preact/hooks"
+import { useEffect, useContext } from "preact/hooks"
 import { Link } from 'preact-router/match';
 import useSWR from "swr";
 
+import { AppOptions } from "../app";
+
 export default function Index({ meta, slug, ...props }) {
+  const options = useContext(AppOptions);
+
   const target = meta ? (meta == "tags" ? `tags/${slug}/posts` : `categories/${slug}/posts`) : "posts";
   const page = props.page ? parseInt(props.page) : 1;
   const { data, error, isLoading } = useSWR(`/api/${target}/?page=${page}`);
@@ -10,7 +14,7 @@ export default function Index({ meta, slug, ...props }) {
   const currentPath = window.location.pathname;
 
   useEffect(() => {
-    document.title = data && page != 1 ? `第 ${page} 页 - 如墨` : "如墨";
+    document.title = data && page != 1 ? `第 ${page} 页 - ${options.title}` : options.title;
   }, [data]);
 
   if (error) return <div>服务器错误</div>

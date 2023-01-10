@@ -1,8 +1,12 @@
-import { useEffect } from "preact/hooks"
+import { useEffect, useContext } from "preact/hooks"
+
+import { AppOptions } from "../app";
 
 export default function ErrorPage({ ...props }) {
+  const options = useContext(AppOptions);
+
   useEffect(() => {
-    document.title = `未找到 - 如墨`;
+    document.title = `未找到 - ${options.title}`;
   }, []);
 
   return (

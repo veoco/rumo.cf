@@ -1,14 +1,18 @@
-import { useEffect } from "preact/hooks"
+import { useEffect, useContext } from "preact/hooks"
 import useSWR from "swr";
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import behead from 'remark-behead';
 
+import { AppOptions } from "../app";
+
 export default function SinglePage({ slug }) {
+  const options = useContext(AppOptions);
+
   const { data, error, isLoading } = useSWR(`/api/pages/${slug}`);
 
   useEffect(() => {
-    document.title = data ? `${data.title} - 如墨` : "如墨";
+    document.title = data ? `${data.title} - ${options.title}` : options.title;
   }, [data]);
 
   if (error) return <div>服务器错误</div>
