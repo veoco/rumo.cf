@@ -46,6 +46,8 @@ function App() {
           <Link href="https://github.com/veoco/rumo" data-native>rumo</Link>
           <span className='mx-2'>|</span>
           <Link target="_blank" href="https://github.com/veoco/rumo.cf" data-native>rumo.cf</Link>
+          <span className='mx-2'>|</span>
+          <Link target="_blank" href="https://github.com/veoco/rumo-admin" data-native>rumo-admin</Link>
         </footer>
       </SWRConfig>
     </AppOptions.Provider>
